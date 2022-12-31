@@ -1,0 +1,25 @@
+<p>
+  <mat-toolbar color="primary">
+    <button routerLink="/" mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
+
+
+    <span class="spacer"></span>
+    <span>{{title}}</span>
+
+    <span class="spacer"></span>
+    <button title="Send me an email." routerLink="/contact/email" mat-icon-button class="example-icon email-icon"
+      aria-label="Email icon">
+      <mat-icon>email</mat-icon>
+    </button>
+    <button title="See my resume" routerLink="/contact/resume" mat-icon-button class="resume-icon"
+      aria-label="Resume icon">
+      <mat-icon>work_history</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<p>
+  <router-outlet></router-outlet>
+</p>

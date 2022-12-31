@@ -1,0 +1,38 @@
+<mat-card class="kvcdr-email-form-contact-form">
+  <mat-card-title>{{title}}</mat-card-title>
+  <mat-card-subtitle>{{description}}</mat-card-subtitle>
+  <mat-card-content>
+    <p>
+
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name">
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>email</mat-label>
+        <input matInput placeholder="email">
+      </mat-form-field>
+
+    </p>
+    <p>
+      <mat-form-field class="kvcdr-email-form-contact-form">
+        <mat-label>The Message</mat-label>
+        <textarea matNativeControl ></textarea>
+      </mat-form-field>
+    </p>
+
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-button color="primary">Submit</button>
+    <button mat-button >Cancel</button>
+
+  </mat-card-actions>
+</mat-card>
