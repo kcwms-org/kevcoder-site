@@ -10,7 +10,9 @@ jobs:
     name: build the ng site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@18
+      - uses: actions/setup-node@3.5.1
+        with:
+          node-version: 18.x
       - name: build website
         run: |
           npm install
