@@ -37,3 +37,4 @@ jobs:
         docker build . --file Dockerfile --tag registry.digitalocean.com/kevcoder/kevcoder.com
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login registry.digitalocean.com --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker push registry.digitalocean.com/kevcoder/kevcoder.com
+        docker logout
