@@ -10,13 +10,12 @@ jobs:
     name: build the ng site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@3.5.1
+      - uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - name: build website
-        run: |
-          npm install
-          npm run build
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
       - uses: actions/upload-artifact@v3
         with:
           name: build_output
