@@ -32,11 +32,11 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: dist
-      env:
-        DOCKER_REGISTRY: registry.digitalocean.com
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/kevcoder/kevcoder.com
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker push ${{ env.DOCKER_REGISTRY }}/kevcoder/kevcoder.com
         docker logout ${{ env.DOCKER_REGISTRY }}
+      env:
+        DOCKER_REGISTRY: registry.digitalocean.com
