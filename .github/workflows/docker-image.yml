@@ -14,7 +14,11 @@ jobs:
         with:
           node-version: 18.x
           cache-dependency-path: ../
-      - run: pwd
+      - run: |
+          pwd
+          ls -hl
+          cd ..
+          ls -hl
       - run: npm install
       - run: npm run build
       - uses: actions/upload-artifact@v3
