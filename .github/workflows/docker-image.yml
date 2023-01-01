@@ -35,5 +35,5 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag registry.digitalocean.com/kevcoder/kevcoder.com:$(date +%s)
-        docker login registry.digitalocean.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+        docker login registry.digitalocean.com --username ${{ env.DOCKER_USERNAME }} --password ${{ env.DOCKER_PASSWORD }}
         docker push registry.digitalocean.com/kevcoder/kevcoder.com
