@@ -6,12 +6,28 @@ on:
   workflow_dispatch:
 
 jobs:
-
-  build:
-    name: push to digital ocean registry
+  build_site:
+    name: build the ng site
     runs-on: ubuntu-latest
-
     steps:
+      - uses: node:18
+      - name: build website
+        run: |
+          npm install
+          npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build_output
+          path: dist/**
+
+  build_and_push_image_to_registry:  
+    name: push image to registry
+    needs: build_sites
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: build_output
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
