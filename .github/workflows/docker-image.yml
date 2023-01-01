@@ -14,13 +14,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache-dependency-path: ../
-      - run: |
-          pwd
-          ls -hl
-          cd ..
-          ls -hl
-      - run: npm install
+          cache: npm
+      - run: npm ci
       - run: npm run build
       - uses: actions/upload-artifact@v3
         with:
@@ -35,7 +30,6 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: build_output
-    - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag registry.digitalocean.com/kevcoder/kevcoder.com:$(date +%s)
